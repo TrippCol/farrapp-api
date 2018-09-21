@@ -27,5 +27,7 @@ targetCompatibility = 1.8
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-data-mongodb")
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('io.jsonwebtoken:jjwt:0.6.0')
     testCompile("org.springframework.boot:spring-boot-starter-test")
 }

@@ -4,6 +4,8 @@
     <bytecodeTargetLevel>
       <module name="co.tripp.farrapp.api_main" target="1.8" />
       <module name="co.tripp.farrapp.api_test" target="1.8" />
+      <module name="farrapp-api_main" target="1.8" />
+      <module name="farrapp-api_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
