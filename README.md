@@ -36,7 +36,7 @@ To get started consider:
 
 - create a build:
   ```bash
-  gradlew bootRun
+  gradlew build
   ```
 
 ## Contributors
