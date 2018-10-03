@@ -5,11 +5,11 @@ public class User {
     private String lastName;
     private String email;
     private String password;
-    private long id;
+    private int id;
 
     public User(){}
 
-    public User(String name, String lastName, String email, String password, long id){
+    public User(String name, String lastName, String email, String password, int id){
         this.name = name;
         this.lastName = lastName;
         this.email = email;
@@ -50,11 +50,11 @@ public class User {
         this.password = password;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 }

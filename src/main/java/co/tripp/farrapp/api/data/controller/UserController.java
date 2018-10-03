@@ -5,7 +5,9 @@ import co.tripp.farrapp.api.data.service.UserService;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.http.HttpStatus;
 
 import javax.servlet.ServletException;
 import java.util.Date;
@@ -14,7 +16,7 @@ import java.util.Date;
  * @author Tripp
  */
 @RestController
-@RequestMapping( "user" )
+@RequestMapping( "users" )
 public class UserController
 {
 
@@ -57,6 +59,51 @@ public class UserController
 
         return new Token( jwtToken );
     }
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @RequestMapping( method=RequestMethod.POST )
+    public ResponseEntity<?> addNewUser(@RequestBody User user){
+        userService.addNewUser(user);
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @RequestMapping( value="/user-info/{idUser}", method=RequestMethod.PUT )
+    public ResponseEntity<?> modifyUserInfo(@PathVariable(name = "idUser") long idUser, @RequestBody User user){
+        userService.modifyUserInfo
+                (
+                userService.getUserById(idUser),
+                user.getName(),
+                user.getLastName(),
+                user.getId(),
+                user.getEmail()
+                );
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @RequestMapping( value="/user-password/{idUser}", method=RequestMethod.PUT )
+    public ResponseEntity<?> modifyUserPassword(@PathVariable(name = "idUser") long idUser, @RequestBody User user){
+        userService.modifyUserPassword
+                (
+                user.getPassword(),
+                userService.getUserById(idUser)
+                );
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @RequestMapping( method=RequestMethod.GET )
+    public ResponseEntity<?> getUsers(){
+        return new ResponseEntity<>(userService.getUsers(), HttpStatus.ACCEPTED);
+    }
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @RequestMapping( value="/{idUser}", method=RequestMethod.GET )
+    public ResponseEntity<?> getUser(@PathVariable(name = "idUser") long idUser){
+        return new ResponseEntity<>(userService.getUserById(idUser), HttpStatus.ACCEPTED);
+    }
+
 
     public class Token
     {
