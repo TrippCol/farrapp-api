@@ -38,7 +38,7 @@ public class UserController
 
         String email = login.getEmail();
         String password = login.getPassword();;
-        User user = userService.getUserByEmail( email );
+        User user = userService.getUserById( login.getId() );
 
         if ( user == null )
         {
@@ -69,10 +69,10 @@ public class UserController
 
     @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping( value="/user-info/{idUser}", method=RequestMethod.PUT )
-    public ResponseEntity<?> modifyUserInfo(@PathVariable(name = "idUser") long idUser, @RequestBody User user){
+    public ResponseEntity<?> modifyUserInfo(@PathVariable(name = "idUser") int idUser, @RequestBody User user){
         userService.modifyUserInfo
                 (
-                userService.getUserById(idUser),
+                idUser,
                 user.getName(),
                 user.getLastName(),
                 user.getId(),
@@ -83,11 +83,11 @@ public class UserController
 
     @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping( value="/user-password/{idUser}", method=RequestMethod.PUT )
-    public ResponseEntity<?> modifyUserPassword(@PathVariable(name = "idUser") long idUser, @RequestBody User user){
+    public ResponseEntity<?> modifyUserPassword(@PathVariable(name = "idUser") int idUser, @RequestBody User user){
         userService.modifyUserPassword
                 (
-                user.getPassword(),
-                userService.getUserById(idUser)
+                        idUser,
+                        user.getPassword()
                 );
         return new ResponseEntity<>(HttpStatus.OK);
     }
@@ -100,7 +100,7 @@ public class UserController
 
     @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping( value="/{idUser}", method=RequestMethod.GET )
-    public ResponseEntity<?> getUser(@PathVariable(name = "idUser") long idUser){
+    public ResponseEntity<?> getUser(@PathVariable(name = "idUser") int idUser){
         return new ResponseEntity<>(userService.getUserById(idUser), HttpStatus.ACCEPTED);
     }
 

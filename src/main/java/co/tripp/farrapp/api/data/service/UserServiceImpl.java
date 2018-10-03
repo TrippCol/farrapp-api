@@ -47,25 +47,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void modifyUserInfo (User user, String name, String lastName, int id, String newEmail){
-        for(int i = 0; i <= users.size(); i++){
-            if(users.get(i).getEmail().equals(user.getEmail())){
-                users.get(i).setEmail(newEmail);
-                users.get(i).setName(name);
-                users.get(i).setLastName(lastName);
-                users.get(i).setId(id);
-            }
-        }
+    public void modifyUserInfo (int idUser, String newName, String newLastName, int newId, String newEmail){
+        String password = users.get(idUser).getPassword();
+        users.remove(idUser);
+        users.put(newId, new User(newName, newLastName, newEmail, password, newId));
     }
 
     @Override
-    public void modifyUserPassword (String newPassword, User user){
-        System.out.println(user.getEmail());
-        for(int i = 0; i <= users.size(); i++){
-            if(users.get(i).getEmail().equals(user.getEmail())){
-                users.get(i).setPassword(newPassword);
-            }
-        }
+    public void modifyUserPassword (int idUser, String newPassword){
+        users.get(idUser).setPassword(newPassword);
     }
 
 
@@ -74,27 +64,9 @@ public class UserServiceImpl implements UserService {
         return users;
     }
 
-    @Override
-    public User getUserByEmail(String email) {
-        /*User userFound = null;
-        for (User u: users){
-            if(u.getEmail().equals(email)){
-                userFound = u;
-            }
-        }
-        return userFound;*/
-        return null;
-    }
 
     @Override
-    public User getUserById(long id) {
-        /*User userFound = null;
-        for (User u: users){
-            if(u.getId() == id){
-                userFound = u;
-            }
-        }
-        return userFound;*/
-        return null;
+    public User getUserById(int id) {
+        return users.get(id);
     }
 }
