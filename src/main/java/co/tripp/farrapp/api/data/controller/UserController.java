@@ -37,7 +37,7 @@ public class UserController
         }
 
         String email = login.getEmail();
-        String password = login.getPassword();;
+        String password = login.getPassword();
         User user = userService.getUserById( login.getId() );
 
         if ( user == null )
@@ -108,7 +108,7 @@ public class UserController
     public class Token
     {
 
-        String access_token;
+        private String access_token;
 
 
         public Token( String access_token )

@@ -1,7 +1,5 @@
 package co.tripp.farrapp.api.data.service;
 import co.tripp.farrapp.api.data.model.User;
-
-import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**

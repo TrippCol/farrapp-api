@@ -4,8 +4,6 @@ import co.tripp.farrapp.api.data.model.User;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Service
@@ -17,7 +15,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @PostConstruct
-    private void populateData(){
+    public void populateData(){
         users.put(1019139950, new User(
                 "Juan David",
                 "Ramirez Mendoza",
