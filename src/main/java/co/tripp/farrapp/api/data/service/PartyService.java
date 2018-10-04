@@ -14,4 +14,6 @@ public interface PartyService
 
     ConcurrentHashMap<Integer, Party> getParties();
 
+    void addNewAssistant(Party party, User user);
+
 }

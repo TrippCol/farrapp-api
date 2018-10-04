@@ -118,4 +118,8 @@ public class Party {
     public void setAssistants(User[] assistants) {
         this.assistants = assistants;
     }
+
+    public void AddAssistant(User user){
+        this.assistants[this.assistants.length]= user;
+    }
 }

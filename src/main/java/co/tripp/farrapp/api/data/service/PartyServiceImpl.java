@@ -43,4 +43,8 @@ public class PartyServiceImpl implements PartyService {
         return parties;
     }
 
+    @Override
+    public void addNewAssistant(Party party, User user){
+        party.
+    }
 }
