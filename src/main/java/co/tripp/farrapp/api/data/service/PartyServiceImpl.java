@@ -45,6 +45,7 @@ public class PartyServiceImpl implements PartyService {
 
     @Override
     public void addNewAssistant(Party party, User user){
-        party.
+
+        party.AddAssistant(user);
     }
 }
