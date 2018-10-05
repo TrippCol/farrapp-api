@@ -1,6 +1,6 @@
 package co.tripp.farrapp.api.data.model;
 
-import java.util.Date;
+
 
 public class Party {
     private Integer id;
@@ -119,7 +119,7 @@ public class Party {
         this.assistants = assistants;
     }
 
-    public void AddAssistant(User user){
+    public void addAssistant(User user){
         this.assistants[this.assistants.length]= user;
     }
 }
