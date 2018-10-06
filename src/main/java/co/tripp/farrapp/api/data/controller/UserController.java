@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
 
 import javax.servlet.ServletException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.Date;
+import java.util.logging.Logger;
 
 /**
  * @author Tripp
@@ -38,7 +41,7 @@ public class UserController
 
         String email = login.getEmail();
         String password = login.getPassword();
-        User user = userService.getUserById( login.getId() );
+        User user = userService.getUserByEmail( email );
 
         if ( user == null )
         {
@@ -68,28 +71,45 @@ public class UserController
     }
 
     @CrossOrigin(origins = "http://localhost:3000")
-    @RequestMapping( value="/user-info/{idUser}", method=RequestMethod.PUT )
-    public ResponseEntity<?> modifyUserInfo(@PathVariable(name = "idUser") int idUser, @RequestBody User user){
-        userService.modifyUserInfo
-                (
-                idUser,
-                user.getName(),
-                user.getLastName(),
-                user.getId(),
-                user.getEmail()
-                );
-        return new ResponseEntity<>(HttpStatus.OK);
+    @RequestMapping( value="/user-info/{emailUser}", method=RequestMethod.PUT )
+    public ResponseEntity<?> modifyUserInfo(@PathVariable(name = "emailUser") String emailUser, @RequestBody User user){
+        try {
+            String decodedEmailUser = URLDecoder.decode(emailUser, "UTF-8");
+            userService.modifyUserInfo
+                    (
+                            decodedEmailUser,
+                            user.getName(),
+                            user.getLastName(),
+                            user.getId(),
+                            user.getEmail()
+                    );
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+
     }
 
     @CrossOrigin(origins = "http://localhost:3000")
-    @RequestMapping( value="/user-password/{idUser}", method=RequestMethod.PUT )
-    public ResponseEntity<?> modifyUserPassword(@PathVariable(name = "idUser") int idUser, @RequestBody User user){
-        userService.modifyUserPassword
-                (
-                        idUser,
-                        user.getPassword()
-                );
-        return new ResponseEntity<>(HttpStatus.OK);
+    @RequestMapping( value="/user-password/{emailUser}", method=RequestMethod.PUT )
+    public ResponseEntity<?> modifyUserPassword(@PathVariable(name = "emailUser") String emailUser, @RequestBody User user){
+
+        try {
+            String decodedEmailUser = URLDecoder.decode(emailUser, "UTF-8");
+            userService.modifyUserPassword
+                    (
+                            decodedEmailUser,
+                            user.getPassword()
+                    );
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+
     }
 
     @CrossOrigin(origins = "http://localhost:3000")
@@ -99,9 +119,17 @@ public class UserController
     }
 
     @CrossOrigin(origins = "http://localhost:3000")
-    @RequestMapping( value="/{idUser}", method=RequestMethod.GET )
-    public ResponseEntity<?> getUser(@PathVariable(name = "idUser") int idUser){
-        return new ResponseEntity<>(userService.getUserById(idUser), HttpStatus.ACCEPTED);
+    @RequestMapping( value="/{emailUser}", method=RequestMethod.GET )
+    public ResponseEntity<?> getUser(@PathVariable(name = "emailUser") String emailUser){
+        try
+        {
+            String decodedEmailUser = URLDecoder.decode(emailUser, "UTF-8");
+            return new ResponseEntity<>(userService.getUserByEmail(decodedEmailUser), HttpStatus.ACCEPTED);
+        }catch(Exception e){
+            System.out.println(e);
+        }
+            return null;
+
     }
 
 
