@@ -45,7 +45,7 @@ public class UserController
 
         if ( user == null )
         {
-            throw new ServletException( "User username not found." );
+            throw new ServletException( "User email not found." );
         }
 
         String pwd = user.getPassword();
