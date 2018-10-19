@@ -13,7 +13,6 @@ import javax.servlet.ServletException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.Date;
-import java.util.logging.Logger;
 
 /**
  * @author Tripp
