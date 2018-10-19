@@ -9,12 +9,11 @@ public interface UserService
 {
     void addNewUser (User user);
 
-    void modifyUserInfo (int idUser, String newName, String newLastName, int newId, String newEmail);
+    void modifyUserInfo (String emailUser, String newName, String newLastName, int newId, String newEmail);
 
-    void modifyUserPassword (int idUser, String newPassword);
+    void modifyUserPassword (String emailUser, String newPassword);
 
-    ConcurrentHashMap<Integer, User> getUsers();
+    ConcurrentHashMap<String, User> getUsers();
 
-
-    User getUserById (int id);
+    User getUserByEmail(String email);
 }
