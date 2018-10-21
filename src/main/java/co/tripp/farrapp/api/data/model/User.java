@@ -1,10 +1,16 @@
 package co.tripp.farrapp.api.data.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
 public class User {
     private String name;
     private String lastName;
     private String email;
     private String password;
+
+    @Id
     private int id;
 
     public User(){}
