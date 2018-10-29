@@ -4,6 +4,8 @@ package co.tripp.farrapp.api.data.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
+
 @Document
 public class Party {
     @Id
@@ -18,6 +20,7 @@ public class Party {
     private String optionalDescription;
     private String typeOfMusic;
     private User[] assistants;
+    private List<String> categories;
 
 
     public Party(){}
@@ -122,6 +125,14 @@ public class Party {
 
     public void setAssistants(User[] assistants) {
         this.assistants = assistants;
+    }
+
+    public List<String> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<String> categories) {
+        this.categories = categories;
     }
 
     public void addAssistant(User user){

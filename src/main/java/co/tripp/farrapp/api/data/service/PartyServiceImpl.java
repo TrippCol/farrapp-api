@@ -5,6 +5,9 @@ import co.tripp.farrapp.api.data.model.User;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Service
@@ -18,16 +21,51 @@ public class PartyServiceImpl implements PartyService {
     @PostConstruct
     public void populateData(){
 
+            Party armandoHalloween = new Party("Armando Halloween",
+                    "Fiesta realizada el 31 de diciembre para el dia de las brujas",
+                    "31/10/2018",
+                    "21:00",
+                    "Ac. 85 #15-30",
+                    "Armando Records",
+                    0,
+                    "Cover gratis toda la noche para los espiritus mas fiesteros",
+                    "Electronica",asistentes );
+            Party escudosECI = new Party("Escudos ECI",
+                    "Fiesta realizada despues de la ceremonia de escudos de la Escuela Colombiana de Ingenieria Julio Garavito",
+                    "15/11/2018",
+                    "22:00",
+                    "Ac. 85 #11-53",
+                    "Vintrash",
+                    20000,
+                    "Cover gratis para mujeres",
+                    "Crossover y Electronica",asistentes );
+            Party finalDeSemestre = new Party("Final de semestre",
+                    "Fiesta organizada para el fin de semestre, Escuela Colombiana de Ingenieria Julio Garavito",
+                    "28-11-2018",
+                    "21:00",
+                    "AK 45 (Autonorte) #205-59, Bogotá, Cundinamarca",
+                    "Dembow",
+                    20000,
+                    "Relajate con tus amigos del estres del semestre en Dembow",
+                    "No definido",asistentes );;
+            Party fiECI = new Party("FIECI",
+                    "La mejor fiesta universitaria en Bogotá",
+                    "31-10-2018",
+                    "20:00",
+                    "AK 45 (Autonorte) #205-59, Bogotá, Cundinamarca",
+                    "Escuela Colombiana De Ingeniería Julio Garavito",
+                    2000,
+                    "Fiesta de disfraces",
+                    "Mix 90's",asistentes );
 
-            parties.put(1, new Party("FIECI",
-                "La mejor fiesta universitaria en Bogotá",
-                "31-10-2018",
-                "20:00",
-                "AK 45 (Autonorte) #205-59, Bogotá, Cundinamarca",
-                "Escuela Colombiana De Ingeniería Julio Garavito",
-                2000,
-                "Fiesta de disfraces",
-                "Mix 90's",asistentes ));
+            fiECI.setCategories(Arrays.asList("crossover"));
+            finalDeSemestre.setCategories(Arrays.asList("crossover","reggaeton","champeta"));
+            escudosECI.setCategories(Arrays.asList("crossover", "electronica", "reggaeton", "bachata", "salsa", "ranchera", "champeta"));
+            armandoHalloween.setCategories(Arrays.asList("electronica", "techno", "house"));
+            parties.put(1, fiECI);
+            parties.put(2, finalDeSemestre);
+            parties.put(3, escudosECI);
+            parties.put(4, armandoHalloween);
 
     }
 
@@ -47,5 +85,16 @@ public class PartyServiceImpl implements PartyService {
     public void addNewAssistant(Party party, User user){
 
         party.addAssistant(user);
+    }
+
+    @Override
+    public List<Party> getPartiesByCategory(String category) {
+        List<Party> foundParties = new ArrayList<>();
+        for(Party p: this.parties.values()){
+            if(p.getCategories().contains(category)){
+                foundParties.add(p);
+            }
+        }
+        return foundParties;
     }
 }
