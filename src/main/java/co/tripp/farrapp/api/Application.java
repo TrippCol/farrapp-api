@@ -42,7 +42,7 @@ public class Application implements CommandLineRunner {
 
 
         partyRepository.deleteAll();
-        partyRepository.save(new Party(12,"Halloween Armando"
+        Party p = new Party("Halloween Armando"
                 , "Fiesta de disfraces del dia de las brujas"
                 , "31/10/2018"
                 , "21:00", "Ac. 85 #15-30"
@@ -50,7 +50,9 @@ public class Application implements CommandLineRunner {
                 , 35000
                 , "Premios al mejor disfraz de la noche para hombre y mujer"
                 , "Electronica y Latino"
-                ,  null));
+                ,  null);
+        p.setId(12);
+        partyRepository.save(p);
     }
 
 }

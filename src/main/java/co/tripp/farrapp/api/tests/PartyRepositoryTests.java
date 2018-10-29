@@ -1,7 +1,7 @@
 package co.tripp.farrapp.api.tests;
 
 import co.tripp.farrapp.api.data.model.Party;
-import co.tripp.farrapp.api.data.repositories.PartyRepository;;
+import co.tripp.farrapp.api.data.repositories.PartyRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,16 +21,17 @@ public class PartyRepositoryTests {
     @Before
     public void init() {
         repository.deleteAll();
-        repository.save(new Party(11,"Escudos ECI"
-                                    , "Fiesta realizada despues de la ceremonia de escudos de la Escuela Colombiana de Ingenieria Julio Garavito"
-                                    , "15/11/2018"
-                                    , "22:00", "Ac. 85 #11-53"
-                                    , "Vintrash"
-                                    , 20000
-                                    , "Cover gratis para mujeres"
-                                    , "Crossover y Electronica"
-                                    ,  null));
-        repository.save(new Party(12,"Halloween Armando"
+        Party p1 = new Party("Escudos ECI"
+                , "Fiesta realizada despues de la ceremonia de escudos de la Escuela Colombiana de Ingenieria Julio Garavito"
+                , "15/11/2018"
+                , "22:00", "Ac. 85 #11-53"
+                , "Vintrash"
+                , 20000
+                , "Cover gratis para mujeres"
+                , "Crossover y Electronica"
+                ,  null);
+        p1.setId(11);
+        Party p2 = new Party("Halloween Armando"
                 , "Fiesta de disfraces del dia de las brujas"
                 , "31/10/2018"
                 , "21:00", "Ac. 85 #15-30"
@@ -38,7 +39,10 @@ public class PartyRepositoryTests {
                 , 35000
                 , "Premios al mejor disfraz de la noche para hombre y mujer"
                 , "Electronica y Latino"
-                ,  null));
+                ,  null);
+        p2.setId(12);
+        repository.save(p1);
+        repository.save(p2);
     }
 
     @Test
