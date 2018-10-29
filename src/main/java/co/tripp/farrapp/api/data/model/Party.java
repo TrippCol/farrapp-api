@@ -1,8 +1,12 @@
 package co.tripp.farrapp.api.data.model;
 
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document
 public class Party {
+    @Id
     private Integer id;
     private String partyName;
     private String description;
@@ -30,6 +34,7 @@ public class Party {
         this.typeOfMusic = typeOfMusic;
         this.assistants = assistants;
     }
+
 
     public Integer getId() {
         return id;
