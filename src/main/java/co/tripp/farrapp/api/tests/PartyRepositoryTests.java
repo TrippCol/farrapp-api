@@ -10,6 +10,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 
+import java.util.Arrays;
+
 import static junit.framework.TestCase.assertTrue;
 
 @RunWith(SpringRunner.class)
@@ -28,8 +30,9 @@ public class PartyRepositoryTests {
                 , "Vintrash"
                 , 20000
                 , "Cover gratis para mujeres"
-                , "Crossover y Electronica"
-                ,  null);
+                , null
+                );
+        p1.setCategories(Arrays.asList("Crossover", "Electronica"));
         p1.setId(11);
         Party p2 = new Party("Halloween Armando"
                 , "Fiesta de disfraces del dia de las brujas"
@@ -38,8 +41,9 @@ public class PartyRepositoryTests {
                 , "Armando Records"
                 , 35000
                 , "Premios al mejor disfraz de la noche para hombre y mujer"
-                , "Electronica y Latino"
-                ,  null);
+                , null
+                );
+        p2.setCategories(Arrays.asList("Electronica", "Latino"));
         p2.setId(12);
         repository.save(p1);
         repository.save(p2);

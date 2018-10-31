@@ -3,6 +3,7 @@ package co.tripp.farrapp.api.data.service;
 import co.tripp.farrapp.api.data.model.Party;
 import co.tripp.farrapp.api.data.model.User;
 
+import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -16,4 +17,7 @@ public interface PartyService
 
     void addNewAssistant(Party party, User user);
 
+    List<Party> getPartiesByCategory(String category);
+
+    List<Party> getPartiesByPlace(String place);
 }
