@@ -52,7 +52,8 @@ public class Application implements CommandLineRunner {
                 , 35000
                 , "Premios al mejor disfraz de la noche para hombre y mujer"
                 , null
-                , Arrays.asList("Electronica", "Latino"));
+                );
+        p.setCategories( Arrays.asList("Electronica", "Latino"));
         p.setId(12);
         partyRepository.save(p);
     }

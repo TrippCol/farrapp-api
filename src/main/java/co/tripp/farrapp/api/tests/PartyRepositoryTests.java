@@ -31,7 +31,8 @@ public class PartyRepositoryTests {
                 , 20000
                 , "Cover gratis para mujeres"
                 , null
-                , Arrays.asList("Crossover", "Electronica"));
+                );
+        p1.setCategories(Arrays.asList("Crossover", "Electronica"));
         p1.setId(11);
         Party p2 = new Party("Halloween Armando"
                 , "Fiesta de disfraces del dia de las brujas"
@@ -41,7 +42,8 @@ public class PartyRepositoryTests {
                 , 35000
                 , "Premios al mejor disfraz de la noche para hombre y mujer"
                 , null
-                ,  Arrays.asList("Electronica", "Latino"));
+                );
+        p2.setCategories(Arrays.asList("Electronica", "Latino"));
         p2.setId(12);
         repository.save(p1);
         repository.save(p2);

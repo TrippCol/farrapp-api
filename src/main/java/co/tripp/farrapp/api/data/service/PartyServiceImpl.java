@@ -29,7 +29,9 @@ public class PartyServiceImpl implements PartyService {
                     "Armando Records",
                     0,
                     "Cover gratis toda la noche para los espiritus mas fiesteros",
-                    asistentes, Arrays.asList("electronica", "techno", "house"));
+                    asistentes);
+
+            armandoHalloween.setCategories( Arrays.asList("electronica", "techno", "house"));
             Party escudosECI = new Party("Escudos ECI",
                     "Fiesta realizada despues de la ceremonia de escudos de la Escuela Colombiana de Ingenieria Julio Garavito",
                     "15/11/2018",
@@ -38,7 +40,8 @@ public class PartyServiceImpl implements PartyService {
                     "Vintrash",
                     20000,
                     "Cover gratis para mujeres",
-                    asistentes, Arrays.asList("crossover", "electronica", "reggaeton", "bachata", "salsa", "ranchera", "champeta" ));
+                    asistentes);
+            escudosECI.setCategories(Arrays.asList("crossover", "electronica", "reggaeton", "bachata", "salsa", "ranchera", "champeta" ));
             Party finalDeSemestre = new Party("Final de semestre",
                     "Fiesta organizada para el fin de semestre, Escuela Colombiana de Ingenieria Julio Garavito",
                     "28-11-2018",
@@ -47,7 +50,8 @@ public class PartyServiceImpl implements PartyService {
                     "Dembow",
                     20000,
                     "Relajate con tus amigos del estres del semestre en Dembow",
-                    asistentes,Arrays.asList("crossover","reggaeton","champeta") );;
+                    asistentes );
+            finalDeSemestre.setCategories(Arrays.asList("crossover","reggaeton","champeta"));
             Party fiECI = new Party("FIECI",
                     "La mejor fiesta universitaria en Bogotá",
                     "31-10-2018",
@@ -56,7 +60,8 @@ public class PartyServiceImpl implements PartyService {
                     "Escuela Colombiana De Ingeniería Julio Garavito",
                     2000,
                     "Fiesta de disfraces",
-                    asistentes,Arrays.asList("crossover") );
+                    asistentes );
+            fiECI.setCategories(Arrays.asList("crossover"));
             parties.put(1, fiECI);
             parties.put(2, finalDeSemestre);
             parties.put(3, escudosECI);

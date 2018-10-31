@@ -24,7 +24,7 @@ public class Party {
 
     public Party(){}
 
-    public Party(String partyName, String description, String eventDate, String eventHour, String address, String place, Integer price, String optionalDescription, User[] assistants, List<String> categories) {
+    public Party(String partyName, String description, String eventDate, String eventHour, String address, String place, Integer price, String optionalDescription, User[] assistants) {
         this.partyName = partyName;
         this.description = description;
         this.eventDate = eventDate;
@@ -34,7 +34,6 @@ public class Party {
         this.price = price;
         this.optionalDescription = optionalDescription;
         this.assistants = assistants;
-        this.categories = categories;
     }
 
 
