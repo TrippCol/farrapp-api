@@ -3,7 +3,7 @@ package co.tripp.farrapp.api.data.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
+import co.tripp.farrapp.api.data.model.User;
 import java.util.List;
 
 @Document
@@ -18,14 +18,13 @@ public class Party {
     private String place;
     private Integer price;
     private String optionalDescription;
-    private String typeOfMusic;
     private User[] assistants;
     private List<String> categories;
 
 
     public Party(){}
 
-    public Party(String partyName, String description, String eventDate, String eventHour, String address, String place, Integer price, String optionalDescription, String typeOfMusic, User[] assistants) {
+    public Party(String partyName, String description, String eventDate, String eventHour, String address, String place, Integer price, String optionalDescription, User[] assistants, List<String> categories) {
         this.partyName = partyName;
         this.description = description;
         this.eventDate = eventDate;
@@ -34,8 +33,8 @@ public class Party {
         this.place = place;
         this.price = price;
         this.optionalDescription = optionalDescription;
-        this.typeOfMusic = typeOfMusic;
         this.assistants = assistants;
+        this.categories = categories;
     }
 
 
@@ -111,13 +110,6 @@ public class Party {
         this.optionalDescription = optionalDescription;
     }
 
-    public String getTypeOfMusic() {
-        return typeOfMusic;
-    }
-
-    public void setTypeOfMusic(String typeOfMusic) {
-        this.typeOfMusic = typeOfMusic;
-    }
 
     public User[] getAssistants() {
         return assistants;

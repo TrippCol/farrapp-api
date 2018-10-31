@@ -18,4 +18,6 @@ public interface PartyService
     void addNewAssistant(Party party, User user);
 
     List<Party> getPartiesByCategory(String category);
+
+    List<Party> getPartiesByPlace(String place);
 }

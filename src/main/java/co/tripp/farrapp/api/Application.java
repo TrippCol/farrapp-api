@@ -12,6 +12,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 
+import java.util.Arrays;
+
 @SpringBootApplication
 public class Application implements CommandLineRunner {
 
@@ -49,8 +51,8 @@ public class Application implements CommandLineRunner {
                 , "Armando Records"
                 , 35000
                 , "Premios al mejor disfraz de la noche para hombre y mujer"
-                , "Electronica y Latino"
-                ,  null);
+                , null
+                , Arrays.asList("Electronica", "Latino"));
         p.setId(12);
         partyRepository.save(p);
     }
