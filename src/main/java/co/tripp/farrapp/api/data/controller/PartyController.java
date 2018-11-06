@@ -36,13 +36,13 @@ public class PartyController
         }
 
         @CrossOrigin(origins = "http://localhost:3000")
-        @RequestMapping( value = "/parties", method = RequestMethod.GET )
+        @RequestMapping( value = "/parties?{category}", method = RequestMethod.GET )
         public ResponseEntity<?> getPartiesByCategory(@RequestParam("category") String category) {
             return new ResponseEntity<>(partyService.getPartiesByCategory(category),HttpStatus.ACCEPTED);
         }
 
         @CrossOrigin(origins = "http://localhost:3000")
-        @RequestMapping( value = "/parties", method = RequestMethod.GET )
+        @RequestMapping( value = "/parties?{place}", method = RequestMethod.GET )
         public ResponseEntity<?> getPartiesByPlace(@RequestParam("place") String place) {
             return new ResponseEntity<>(partyService.getPartiesByPlace(place),HttpStatus.ACCEPTED);
         }
