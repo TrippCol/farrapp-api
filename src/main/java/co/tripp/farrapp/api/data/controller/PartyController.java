@@ -29,33 +29,33 @@ public class PartyController
         private PartyService partyService;
 
         @CrossOrigin(origins = "http://localhost:3000")
-        @RequestMapping( value = "/parties", method = RequestMethod.POST )
+        @RequestMapping( method = RequestMethod.POST )
         public ResponseEntity<?> addParty(@RequestBody Party party ) throws ServletException {
             partyService.addNewParty(party);
             return new ResponseEntity<>(HttpStatus.CREATED);
         }
 
-        @CrossOrigin(origins = "http://localhost:3000")
-        @RequestMapping( value = "/parties?{category}", method = RequestMethod.GET )
+        /*@CrossOrigin(origins = "http://localhost:3000")
+        @RequestMapping(value="/filter", method = RequestMethod.GET )
         public ResponseEntity<?> getPartiesByCategory(@RequestParam("category") String category) {
             return new ResponseEntity<>(partyService.getPartiesByCategory(category),HttpStatus.ACCEPTED);
         }
 
         @CrossOrigin(origins = "http://localhost:3000")
-        @RequestMapping( value = "/parties?{place}", method = RequestMethod.GET )
+        @RequestMapping(value="/filter", method = RequestMethod.GET )
         public ResponseEntity<?> getPartiesByPlace(@RequestParam("place") String place) {
             return new ResponseEntity<>(partyService.getPartiesByPlace(place),HttpStatus.ACCEPTED);
-        }
+        }*/
 
 
         @CrossOrigin(origins = "http://localhost:3000")
-        @RequestMapping( value = "/parties/", method = RequestMethod.GET )
+        @RequestMapping( method = RequestMethod.GET )
         public ResponseEntity<?> getPartyList() {
             return new ResponseEntity<>(partyService.getParties(),HttpStatus.ACCEPTED);
         }
 
         @CrossOrigin(origins = "http://localhost:3000")
-        @RequestMapping( value = "/parties/party", method = RequestMethod.POST )
+        @RequestMapping( value = "/party", method = RequestMethod.POST )
         public ResponseEntity<?> addUserToParty(@RequestBody User user, @RequestBody Party party ) throws ServletException {
             partyService.addNewAssistant(party, user);
             return new ResponseEntity<>(HttpStatus.CREATED);
