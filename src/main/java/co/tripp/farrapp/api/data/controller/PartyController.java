@@ -55,9 +55,9 @@ public class PartyController
         }
 
         @CrossOrigin(origins = "http://localhost:3000")
-        @RequestMapping( value = "/party", method = RequestMethod.POST )
-        public ResponseEntity<?> addUserToParty(@RequestBody User user, @RequestBody Party party ) throws ServletException {
-            partyService.addNewAssistant(party, user);
+        @RequestMapping( value = "/party/{idParty}", method = RequestMethod.PUT )
+        public ResponseEntity<?> addUserToParty(@PathVariable(name = "idParty") int idParty, @RequestBody User user) throws ServletException {
+            partyService.addNewAssistant(idParty, user);
             return new ResponseEntity<>(HttpStatus.CREATED);
         }
 

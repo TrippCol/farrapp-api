@@ -13,7 +13,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @Service
 public class PartyServiceImpl implements PartyService {
     private ConcurrentHashMap<Integer, Party> parties;
-    private User[] asistentes=new User[]{};
+    private List<User> asistentes=new ArrayList<User>();
     public PartyServiceImpl(){
         parties = new ConcurrentHashMap<>();
     }
@@ -62,6 +62,7 @@ public class PartyServiceImpl implements PartyService {
                     "Fiesta de disfraces",
                     asistentes );
             fiECI.setCategories(Arrays.asList("crossover"));
+            fiECI.setId(1);
             parties.put(1, fiECI);
             parties.put(2, finalDeSemestre);
             parties.put(3, escudosECI);
@@ -82,9 +83,13 @@ public class PartyServiceImpl implements PartyService {
     }
 
     @Override
-    public void addNewAssistant(Party party, User user){
-
-        party.addAssistant(user);
+    public void addNewAssistant(int idParty, User user){
+        if(parties.get(idParty).getAssistants().equals(null)){
+            parties.get(idParty).setAssistants(Arrays.asList(user));
+        }else{
+            parties.get(idParty).addAssistant(user);
+        }
+        
     }
 
     @Override

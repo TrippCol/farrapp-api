@@ -15,7 +15,7 @@ public interface PartyService
 
     ConcurrentHashMap<Integer, Party> getParties();
 
-    void addNewAssistant(Party party, User user);
+    void addNewAssistant(int idParty, User user);
 
     List<Party> getPartiesByCategory(String category);
 
