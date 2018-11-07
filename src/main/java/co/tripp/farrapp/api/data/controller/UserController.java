@@ -25,7 +25,7 @@ public class UserController
     @Autowired
     private UserService userService;
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "https://farrapp-frontend.herokuapp.com")
     @RequestMapping( value = "/login", method = RequestMethod.POST )
     public Token login( @RequestBody User login )
             throws ServletException
@@ -62,14 +62,14 @@ public class UserController
         return new Token( jwtToken );
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "https://farrapp-frontend.herokuapp.com")
     @RequestMapping( method=RequestMethod.POST )
     public ResponseEntity<?> addNewUser(@RequestBody User user){
         userService.addNewUser(user);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "https://farrapp-frontend.herokuapp.com")
     @RequestMapping( value="/user-info/{emailUser}", method=RequestMethod.PUT )
     public ResponseEntity<?> modifyUserInfo(@PathVariable(name = "emailUser") String emailUser, @RequestBody User user){
         try {
@@ -91,7 +91,7 @@ public class UserController
 
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "https://farrapp-frontend.herokuapp.com")
     @RequestMapping( value="/user-password/{emailUser}", method=RequestMethod.PUT )
     public ResponseEntity<?> modifyUserPassword(@PathVariable(name = "emailUser") String emailUser, @RequestBody User user){
 
@@ -111,13 +111,13 @@ public class UserController
 
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "https://farrapp-frontend.herokuapp.com")
     @RequestMapping( method=RequestMethod.GET )
     public ResponseEntity<?> getUsers(){
         return new ResponseEntity<>(userService.getUsers(), HttpStatus.ACCEPTED);
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "https://farrapp-frontend.herokuapp.com0")
     @RequestMapping( value="/{emailUser}", method=RequestMethod.GET )
     public ResponseEntity<?> getUser(@PathVariable(name = "emailUser") String emailUser){
         try
