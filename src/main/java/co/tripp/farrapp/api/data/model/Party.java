@@ -18,13 +18,13 @@ public class Party {
     private String place;
     private Integer price;
     private String optionalDescription;
-    private User[] assistants;
+    private List<User> assistants;
     private List<String> categories;
 
 
     public Party(){}
 
-    public Party(String partyName, String description, String eventDate, String eventHour, String address, String place, Integer price, String optionalDescription, User[] assistants) {
+    public Party(String partyName, String description, String eventDate, String eventHour, String address, String place, Integer price, String optionalDescription, List<User> assistants) {
         this.partyName = partyName;
         this.description = description;
         this.eventDate = eventDate;
@@ -110,11 +110,11 @@ public class Party {
     }
 
 
-    public User[] getAssistants() {
+    public List<User> getAssistants() {
         return assistants;
     }
 
-    public void setAssistants(User[] assistants) {
+    public void setAssistants(List<User> assistants) {
         this.assistants = assistants;
     }
 
@@ -127,6 +127,6 @@ public class Party {
     }
 
     public void addAssistant(User user){
-        this.assistants[this.assistants.length]= user;
+        this.assistants.add(user);
     }
 }
