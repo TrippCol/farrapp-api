@@ -40,11 +40,11 @@ public class Application implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         userRepository.deleteAll();
-        userRepository.save(new User("Juan David", "Ramirez Mendoza", "juan.ramirez-me@mail.escuelaing.edu.co", "qwerty1", 1020394));
+        userRepository.save(new User("Juan David", "Ramirez Mendoza", "juan.ramirez-me@mail.escuelaing.edu.co", "qwerty1", 1020394, "User"));
 
 
         partyRepository.deleteAll();
-        Party p = new Party("Halloween Armando"
+        Party p = new Party("Candy Flip", "Halloween Armando"
                 , "Fiesta de disfraces del dia de las brujas"
                 , "31/10/2018"
                 , "21:00", "Ac. 85 #15-30"

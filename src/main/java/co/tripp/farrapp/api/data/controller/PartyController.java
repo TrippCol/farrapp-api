@@ -35,17 +35,11 @@ public class PartyController
             return new ResponseEntity<>(HttpStatus.CREATED);
         }
 
-        /*@CrossOrigin(origins = "http://localhost:3000")
-        @RequestMapping(value="/filter", method = RequestMethod.GET )
-        public ResponseEntity<?> getPartiesByCategory(@RequestParam("category") String category) {
-            return new ResponseEntity<>(partyService.getPartiesByCategory(category),HttpStatus.ACCEPTED);
+        @CrossOrigin(origins = "https://farrapp-frontend.herokuapp.com")
+        @RequestMapping(value="/creator/{creator}", method = RequestMethod.GET )
+        public ResponseEntity<?> getPartiesByCreator(@PathVariable("creator") String creator) {
+            return new ResponseEntity<>(partyService.getPartiesByCreator(creator),HttpStatus.ACCEPTED);
         }
-
-        @CrossOrigin(origins = "http://localhost:3000")
-        @RequestMapping(value="/filter", method = RequestMethod.GET )
-        public ResponseEntity<?> getPartiesByPlace(@RequestParam("place") String place) {
-            return new ResponseEntity<>(partyService.getPartiesByPlace(place),HttpStatus.ACCEPTED);
-        }*/
 
 
         @CrossOrigin(origins = "https://farrapp-frontend.herokuapp.com")

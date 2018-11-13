@@ -21,7 +21,7 @@ public class PartyServiceImpl implements PartyService {
     @PostConstruct
     public void populateData(){
 
-            Party armandoHalloween = new Party("Armando Halloween",
+            Party armandoHalloween = new Party("Candy FLip", "Armando Halloween",
                     "Fiesta realizada el 31 de diciembre para el dia de las brujas",
                     "31/10/2018",
                     "21:00",
@@ -32,7 +32,7 @@ public class PartyServiceImpl implements PartyService {
                     asistentes);
 
             armandoHalloween.setCategories( Arrays.asList("electronica", "techno", "house"));
-            Party escudosECI = new Party("Escudos ECI",
+            Party escudosECI = new Party("Escudos 2018 Fb group","Escudos ECI",
                     "Fiesta realizada despues de la ceremonia de escudos de la Escuela Colombiana de Ingenieria Julio Garavito",
                     "15/11/2018",
                     "22:00",
@@ -42,7 +42,7 @@ public class PartyServiceImpl implements PartyService {
                     "Cover gratis para mujeres",
                     asistentes);
             escudosECI.setCategories(Arrays.asList("crossover", "electronica", "reggaeton", "bachata", "salsa", "ranchera", "champeta" ));
-            Party finalDeSemestre = new Party("Final de semestre",
+            Party finalDeSemestre = new Party("Estudiantes ECI", "Final de semestre",
                     "Fiesta organizada para el fin de semestre, Escuela Colombiana de Ingenieria Julio Garavito",
                     "28-11-2018",
                     "21:00",
@@ -52,7 +52,7 @@ public class PartyServiceImpl implements PartyService {
                     "Relajate con tus amigos del estres del semestre en Dembow",
                     asistentes );
             finalDeSemestre.setCategories(Arrays.asList("crossover","reggaeton","champeta"));
-            Party fiECI = new Party("FIECI",
+            Party fiECI = new Party("ECI","FIECI",
                     "La mejor fiesta universitaria en Bogotá",
                     "31-10-2018",
                     "20:00",
@@ -108,6 +108,17 @@ public class PartyServiceImpl implements PartyService {
         List<Party> foundParties = new ArrayList<>();
         for(Party p: this.parties.values()){
             if(p.getPlace().equals(place)){
+                foundParties.add(p);
+            }
+        }
+        return foundParties;
+    }
+
+    @Override
+    public List<Party> getPartiesByCreator(String creator) {
+        List<Party> foundParties = new ArrayList<>();
+        for(Party p: this.parties.values()){
+            if(p.getCreator().equals(creator)){
                 foundParties.add(p);
             }
         }

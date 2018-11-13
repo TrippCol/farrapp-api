@@ -9,19 +9,28 @@ public class User {
     private String lastName;
     private String email;
     private String password;
+    private String type;
 
     @Id
     private int id;
 
     public User(){}
 
-    public User(String name, String lastName, String email, String password, int id){
+    public User(String name, String lastName, String email, String password, int id, String type){
         this.name = name;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.id = id;
+        this.type = type;
+    }
 
+    public User(String name, String lastName, String email, String password, int id) {
+        this.name = name;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.id = id;
     }
 
     public String getName() {
@@ -62,5 +71,13 @@ public class User {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

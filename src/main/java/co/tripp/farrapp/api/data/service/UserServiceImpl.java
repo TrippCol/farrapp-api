@@ -21,7 +21,8 @@ public class UserServiceImpl implements UserService {
                 "Ramirez Mendoza",
                 "juan.ramirez-me@mail.escuelaing.edu.co",
                 "qwerty1",
-                1019139950
+                1019139950,
+                "User"
         ));
 
         users.put("kevin.mendieta@mail.escuelaing.edu.co", new User(
@@ -29,14 +30,16 @@ public class UserServiceImpl implements UserService {
                 "Mendieta Perez",
                 "kevin.mendieta@mail.escuelaing.edu.co",
                 "qwerty2",
-                1020456768
+                1020456768,
+                "Admin"
         ));
         users.put("nicolas.osorio@mail.escuelaing.edu.co", new User(
-            "Nicolas",
-            "Osorio Arias",
-            "nicolas.osorio@mail.escuelaing.edu.co",
-            "qwerty3",
-            234542311
+                "Nicolas",
+                "Osorio Arias",
+                "nicolas.osorio@mail.escuelaing.edu.co",
+                "qwerty3",
+                234542311,
+                "User"
             ));
     }
     @Override

@@ -20,4 +20,6 @@ public interface PartyService
     List<Party> getPartiesByCategory(String category);
 
     List<Party> getPartiesByPlace(String place);
+
+    List<Party> getPartiesByCreator(String creator);
 }

@@ -3,13 +3,14 @@ package co.tripp.farrapp.api.data.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import co.tripp.farrapp.api.data.model.User;
+
 import java.util.List;
 
 @Document
 public class Party {
     @Id
     private Integer id;
+    private String creator;
     private String partyName;
     private String description;
     private String eventDate;
@@ -24,7 +25,8 @@ public class Party {
 
     public Party(){}
 
-    public Party(String partyName, String description, String eventDate, String eventHour, String address, String place, Integer price, String optionalDescription, List<User> assistants) {
+    public Party(String creator, String partyName, String description, String eventDate, String eventHour, String address, String place, Integer price, String optionalDescription, List<User> assistants) {
+        this.creator = creator;
         this.partyName = partyName;
         this.description = description;
         this.eventDate = eventDate;
@@ -109,7 +111,6 @@ public class Party {
         this.optionalDescription = optionalDescription;
     }
 
-
     public List<User> getAssistants() {
         return assistants;
     }
@@ -128,5 +129,13 @@ public class Party {
 
     public void addAssistant(User user){
         this.assistants.add(user);
+    }
+
+    public String getCreator() {
+        return creator;
+    }
+
+    public void setCreator(String creator) {
+        this.creator = creator;
     }
 }
