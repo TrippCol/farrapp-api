@@ -1,5 +1,6 @@
 package co.tripp.farrapp.api.data.controller;
 
+import co.tripp.farrapp.api.data.model.Party;
 import co.tripp.farrapp.api.data.model.User;
 import co.tripp.farrapp.api.data.service.UserService;
 import io.jsonwebtoken.Jwts;
@@ -13,6 +14,7 @@ import javax.servlet.ServletException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.Date;
+import java.util.Map;
 
 /**
  * @author Tripp
@@ -130,6 +132,63 @@ public class UserController
             return null;
 
     }
+
+    @CrossOrigin(origins = "https://farrapp-frontend.herokuapp.com")
+    @RequestMapping( value="/{emailUser}/parties", method=RequestMethod.GET )
+    public ResponseEntity<?> getUserParties(@PathVariable(name = "emailUser") String emailUser){
+        try
+        {
+            String decodedEmailUser = URLDecoder.decode(emailUser, "UTF-8");
+            return new ResponseEntity<>(userService.getUserByEmail(decodedEmailUser).getMyParties(), HttpStatus.ACCEPTED);
+        }catch(Exception e){
+            System.out.println(e);
+        }
+        return null;
+
+    }
+
+    @CrossOrigin(origins = "https://farrapp-frontend.herokuapp.com")
+    @RequestMapping( value="/{emailUser}/parties/add", method=RequestMethod.PUT )
+    public ResponseEntity<?> addUserParty(@PathVariable(name = "emailUser") String emailUser, @RequestBody Party party){
+
+        try {
+            String decodedEmailUser = URLDecoder.decode(emailUser, "UTF-8");
+            userService.addUserParty
+                    (
+                            decodedEmailUser,
+                            party
+                    );
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+
+    }
+
+
+
+    @CrossOrigin(origins = "https://farrapp-frontend.herokuapp.com")
+    @RequestMapping( value="/{emailUser}/parties/remove", method=RequestMethod.PUT )
+    public ResponseEntity<?> removeUserParty(@PathVariable(name = "emailUser") String emailUser, @RequestBody Map<String, Integer> partyId){
+
+        try {
+            String decodedEmailUser = URLDecoder.decode(emailUser, "UTF-8");
+            userService.removeUserParty
+                    (
+                            decodedEmailUser,
+                            partyId.get("partyId")
+                    );
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+
+    }
+
 
 
     public class Token

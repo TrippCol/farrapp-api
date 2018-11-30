@@ -3,6 +3,8 @@ package co.tripp.farrapp.api.data.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
+
 @Document
 public class User {
     private String name;
@@ -10,19 +12,21 @@ public class User {
     private String email;
     private String password;
     private String type;
+    private List<Party> myParties;
 
     @Id
     private int id;
 
     public User(){}
 
-    public User(String name, String lastName, String email, String password, int id, String type){
+    public User(String name, String lastName, String email, String password, int id, String type, List<Party> myParties){
         this.name = name;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.id = id;
         this.type = type;
+        this.myParties = myParties;
     }
 
     public User(String name, String lastName, String email, String password, int id) {
@@ -79,5 +83,25 @@ public class User {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public List<Party> getMyParties() {
+        return myParties;
+    }
+
+    public void setMyParties(List<Party> myParties) {
+        this.myParties = myParties;
+    }
+
+    public void addParty(Party party) {
+        this.myParties.add(party);
+    }
+
+    public void removeParty(int partyId) {
+        for(int i=0; i<this.myParties.size(); i++){
+            if(this.myParties.get(i).getId() == partyId){
+                this.myParties.remove(i);
+            }
+        }
     }
 }

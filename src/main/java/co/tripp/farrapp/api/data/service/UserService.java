@@ -1,4 +1,5 @@
 package co.tripp.farrapp.api.data.service;
+import co.tripp.farrapp.api.data.model.Party;
 import co.tripp.farrapp.api.data.model.User;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -16,4 +17,8 @@ public interface UserService
     ConcurrentHashMap<String, User> getUsers();
 
     User getUserByEmail(String email);
+
+    void addUserParty(String email, Party party);
+
+    void removeUserParty(String email, int partyId);
 }

@@ -40,7 +40,7 @@ public class Application implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         userRepository.deleteAll();
-        userRepository.save(new User("Juan David", "Ramirez Mendoza", "juan.ramirez-me@mail.escuelaing.edu.co", "qwerty1", 1020394, "User"));
+        userRepository.save(new User("Juan David", "Ramirez Mendoza", "juan.ramirez-me@mail.escuelaing.edu.co", "qwerty1", 1020394, "User", null));
 
 
         partyRepository.deleteAll();
