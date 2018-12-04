@@ -98,5 +98,8 @@ public class UserServiceImpl implements UserService {
         users.get(email).removeParty(partyId);
     }
 
+    @Override
+    public  void  bookUserToParty(String email, Party party){party.addAssistant(users.get(email));}
+
 
 }

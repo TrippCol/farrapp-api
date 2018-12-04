@@ -21,4 +21,7 @@ public interface UserService
     void addUserParty(String email, Party party);
 
     void removeUserParty(String email, int partyId);
+
+    void bookUserToParty(String email, Party party);
+
 }
