@@ -43,7 +43,7 @@ public class PartyController {
     }
 
     @CrossOrigin(origins = "https://farrapp-frontend.herokuapp.com")
-    @RequestMapping(value = "/party/{idParty}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/party/{idParty}", method = RequestMethod.POST)
     public ResponseEntity<?> addUserToParty(@PathVariable(name = "idParty") int idParty, @RequestBody User user) throws ServletException {
         partyService.addNewAssistant(idParty, user);
         return new ResponseEntity<>(HttpStatus.CREATED);
