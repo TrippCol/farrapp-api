@@ -190,25 +190,7 @@ public class UserController
     }
 
 
-    @CrossOrigin(origins = "https://farrapp-frontend.herokuapp.com")
-    @RequestMapping( value="/{emailUser}/parties/book", method=RequestMethod.PUT )
-    public ResponseEntity<?> bookUserToParty(@PathVariable(name = "emailUser") String emailUser, @RequestBody Party party){
 
-        try {
-            String decodedEmailUser = URLDecoder.decode(emailUser, "UTF-8");
-            userService.bookUserToParty
-                    (
-                            decodedEmailUser,
-                            party
-                    );
-            return new ResponseEntity<>(HttpStatus.OK);
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-
-        return null;
-
-    }
 
 
 

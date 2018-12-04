@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 
 /**
  * @author Tripp
@@ -46,6 +48,8 @@ public class PartyController {
         partyService.addNewAssistant(idParty, user);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
+
+
 
 
 }
