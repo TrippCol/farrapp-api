@@ -22,13 +22,13 @@ public class UserServiceImpl implements UserService {
         List<Party> myPartiesTest = new ArrayList<>();
         Party myParty = new Party("Candy FLip", "Armando Halloween",
                 "Fiesta realizada el 31 de diciembre para el dia de las brujas",
-                "31/10/2018",
+                "31 de Octubre, 2018",
                 "21:00",
-                "Ac. 85 #15-30",
+                "Ac. 85 #15-30 Bogotá, Colombia",
                 "Armando Records",
                 0,
                 "Cover gratis toda la noche para los espiritus mas fiesteros",
-                null);
+                null, "Disfraz", 18);
         myParty.setId(4);
         myPartiesTest.add(myParty);
         users.put("juan.ramirez-me@mail.escuelaing.edu.co", new User(

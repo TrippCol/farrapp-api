@@ -21,11 +21,14 @@ public class Party {
     private String optionalDescription;
     private List<User> assistants;
     private List<String> categories;
+    private Integer minAge;
+    private String dressCode;
+    private Bar bar;
 
 
     public Party(){}
 
-    public Party(String creator, String partyName, String description, String eventDate, String eventHour, String address, String place, Integer price, String optionalDescription, List<User> assistants) {
+    public Party(String creator, String partyName, String description, String eventDate, String eventHour, String address, String place, Integer price, String optionalDescription, List<User> assistants, String dressCode, Integer minAge ) {
         this.creator = creator;
         this.partyName = partyName;
         this.description = description;
@@ -36,6 +39,8 @@ public class Party {
         this.price = price;
         this.optionalDescription = optionalDescription;
         this.assistants = assistants;
+        this.dressCode = dressCode;
+        this.minAge = minAge;
     }
 
 
@@ -137,5 +142,29 @@ public class Party {
 
     public void setCreator(String creator) {
         this.creator = creator;
+    }
+
+    public Integer getMinAge() {
+        return minAge;
+    }
+
+    public void setMinAge(Integer minAge) {
+        this.minAge = minAge;
+    }
+
+    public String getDressCode() {
+        return dressCode;
+    }
+
+    public void setDressCode(String dressCode) {
+        this.dressCode = dressCode;
+    }
+
+    public Bar getBar() {
+        return bar;
+    }
+
+    public void setBar(Bar bar) {
+        this.bar = bar;
     }
 }
