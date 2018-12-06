@@ -18,7 +18,8 @@ public class Party {
     private String address;
     private String place;
     private Integer price;
-    private String optionalDescription;
+    private List<Item> cartaDeProductos;
+    //private String optionalDescription;
     private List<User> assistants;
     private List<String> categories;
     private Integer minAge;
@@ -28,7 +29,7 @@ public class Party {
 
     public Party(){}
 
-    public Party(String creator, String partyName, String description, String eventDate, String eventHour, String address, String place, Integer price, String optionalDescription, List<User> assistants, String dressCode, Integer minAge ) {
+    public Party(String creator, String partyName, String description, String eventDate, String eventHour, String address, String place, Integer price, List<Item> cartaDeProductos, List<User> assistants, String dressCode, Integer minAge ) {
         this.creator = creator;
         this.partyName = partyName;
         this.description = description;
@@ -37,10 +38,11 @@ public class Party {
         this.address = address;
         this.place = place;
         this.price = price;
-        this.optionalDescription = optionalDescription;
+        //this.optionalDescription = optionalDescription;
         this.assistants = assistants;
         this.dressCode = dressCode;
         this.minAge = minAge;
+        this.cartaDeProductos = cartaDeProductos;
     }
 
 
@@ -108,12 +110,12 @@ public class Party {
         this.price = price;
     }
 
-    public String getOptionalDescription() {
-        return optionalDescription;
+    public List<Item> getCartaDeProductos() {
+        return cartaDeProductos;
     }
 
-    public void setOptionalDescription(String optionalDescription) {
-        this.optionalDescription = optionalDescription;
+    public void setCartaDeProductos(List<Item> cartaDeProductos) {
+        this.cartaDeProductos = cartaDeProductos;
     }
 
     public List<User> getAssistants() {

@@ -1,5 +1,6 @@
 package co.tripp.farrapp.api.data.service;
 
+import co.tripp.farrapp.api.data.model.Item;
 import co.tripp.farrapp.api.data.model.Party;
 import co.tripp.farrapp.api.data.model.User;
 import org.springframework.stereotype.Service;
@@ -28,28 +29,28 @@ public class PartyServiceImpl implements PartyService {
                     "Ac. 85 #15-30 Bogotá, Colombia",
                     "Armando Records",
                     0,
-                    "Cover gratis toda la noche para los espiritus mas fiesteros",
+                    Arrays.asList(new Item("Aguardiente", 90000), new Item("Ginebra Tankeray", 190000), new Item("Ron Medellin", 120000), new Item("Cerveza Corona", 10000)),
                     asistentes, "Disfraz", 18);
 
             armandoHalloween.setCategories( Arrays.asList("electronica", "techno", "house"));
             Party escudosECI = new Party("Escudos 2018 Fb group","Escudos ECI",
-                    "Fiesta realizada despues de la ceremonia de escudos de la Escuela Colombiana de Ingenieria Julio Garavito",
+                    "Fiesta realizada despues de la ceremonia de escudos de la Escuela Colombiana de Ingenieria Julio Garavito, Cover gratis para mujeres",
                     "15 de Noviembre de 2018",
                     "22:00",
                     "Ac. 85 #11-53 Bogotá, Colombia",
                     "Vintrash",
                     20000,
-                    "Cover gratis para mujeres",
+                    Arrays.asList(new Item("Aguardiente", 80000), new Item("Ginebra Bombay", 190000), new Item("Ron Viejo de caldas 3 años", 120000), new Item("Cerveza Club Colombia", 10000)),
                     asistentes, "Formal", 18);
             escudosECI.setCategories(Arrays.asList("crossover", "electronica", "reggaeton", "bachata", "salsa", "ranchera", "champeta" ));
             Party finalDeSemestre = new Party("Estudiantes ECI", "Final de semestre",
-                    "Fiesta organizada para el fin de semestre, Escuela Colombiana de Ingenieria Julio Garavito",
+                    "Fiesta organizada para el fin de semestre, Escuela Colombiana de Ingenieria Julio Garavito, Relajate con tus amigos del estres del semestre en Dembow",
                     "28 de Noviembre, 2018",
                     "21:00",
                     "AK 45 (Autonorte) #205-59, Bogotá, Colombia",
                     "Dembow",
                     20000,
-                    "Relajate con tus amigos del estres del semestre en Dembow",
+                    Arrays.asList(new Item("Aguardiente", 95000), new Item("Ginebra Gordon's", 190000), new Item("Ron Bacardi Limon", 120000), new Item("Gaseosa/Agua", 5000)),
                     asistentes, "Casual", 16);
             finalDeSemestre.setCategories(Arrays.asList("crossover","reggaeton","champeta"));
             Party fiECI = new Party("ECI","FIECI",
@@ -57,9 +58,9 @@ public class PartyServiceImpl implements PartyService {
                     "31 de Octubre, 2018",
                     "20:00",
                     "AK 45 (Autonorte) #205-59, Bogotá, Colombia",
-                    "Escuela Colombiana De Ingeniería Julio Garavito",
+                    "ECI",
                     2000,
-                    "Fiesta de disfraces",
+                    Arrays.asList(new Item("Aguardiente", 70000), new Item("Navarro Correas Brut", 90000), new Item("Red Bull", 10000), new Item("Picada", 25000)),
                     asistentes, "Casual", 16);
             fiECI.setCategories(Arrays.asList("crossover"));
             fiECI.setId(1);

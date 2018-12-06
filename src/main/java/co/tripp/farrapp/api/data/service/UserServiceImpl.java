@@ -1,11 +1,13 @@
 package co.tripp.farrapp.api.data.service;
 
+import co.tripp.farrapp.api.data.model.Item;
 import co.tripp.farrapp.api.data.model.Party;
 import co.tripp.farrapp.api.data.model.User;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -27,7 +29,7 @@ public class UserServiceImpl implements UserService {
                 "Ac. 85 #15-30 Bogotá, Colombia",
                 "Armando Records",
                 0,
-                "Cover gratis toda la noche para los espiritus mas fiesteros",
+                Arrays.asList(new Item("Aguardiente", 90000), new Item("Ginebra Tankeray", 190000), new Item("Ron Medellin", 120000), new Item("Cerveza Corona", 10000)),
                 null, "Disfraz", 18);
         myParty.setId(4);
         myPartiesTest.add(myParty);

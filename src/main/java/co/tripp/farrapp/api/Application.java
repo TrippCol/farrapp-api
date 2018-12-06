@@ -44,7 +44,7 @@ public class Application implements CommandLineRunner {
 
 
         partyRepository.deleteAll();
-        Party p = new Party("Candy Flip", "Halloween Armando"
+        /*Party p = new Party("Candy Flip", "Halloween Armando"
                 , "Fiesta de disfraces del dia de las brujas"
                 , "31/10/2018"
                 , "21:00", "Ac. 85 #15-30"
@@ -57,7 +57,7 @@ public class Application implements CommandLineRunner {
                 );
         p.setCategories( Arrays.asList("Electronica", "Latino"));
         p.setId(12);
-        partyRepository.save(p);
+        partyRepository.save(p);*/
     }
 
 }
