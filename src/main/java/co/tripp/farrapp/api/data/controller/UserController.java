@@ -27,7 +27,7 @@ public class UserController
     @Autowired
     private UserService userService;
 
-    @CrossOrigin(origins = "https://farrapp-frontend.herokuapp.com")
+    @CrossOrigin(origins = "*")
     @RequestMapping( value = "/login", method = RequestMethod.POST )
     public Token login( @RequestBody User login )
             throws ServletException
@@ -64,14 +64,14 @@ public class UserController
         return new Token( jwtToken );
     }
 
-    @CrossOrigin(origins = "https://farrapp-frontend.herokuapp.com")
+    @CrossOrigin(origins = "*")
     @RequestMapping( method=RequestMethod.POST )
     public ResponseEntity<?> addNewUser(@RequestBody User user){
         userService.addNewUser(user);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @CrossOrigin(origins = "https://farrapp-frontend.herokuapp.com")
+    @CrossOrigin(origins = "*")
     @RequestMapping( value="/user-info/{emailUser}", method=RequestMethod.PUT )
     public ResponseEntity<?> modifyUserInfo(@PathVariable(name = "emailUser") String emailUser, @RequestBody User user){
         try {
@@ -93,7 +93,7 @@ public class UserController
 
     }
 
-    @CrossOrigin(origins = "https://farrapp-frontend.herokuapp.com")
+    @CrossOrigin(origins = "*")
     @RequestMapping( value="/user-password/{emailUser}", method=RequestMethod.PUT )
     public ResponseEntity<?> modifyUserPassword(@PathVariable(name = "emailUser") String emailUser, @RequestBody User user){
 
@@ -113,7 +113,7 @@ public class UserController
 
     }
 
-    @CrossOrigin(origins = "https://farrapp-frontend.herokuapp.com")
+    @CrossOrigin(origins = "*")
     @RequestMapping( method=RequestMethod.GET )
     public ResponseEntity<?> getUsers(){
         return new ResponseEntity<>(userService.getUsers(), HttpStatus.ACCEPTED);
@@ -133,7 +133,7 @@ public class UserController
 
     }
 
-    @CrossOrigin(origins = "https://farrapp-frontend.herokuapp.com")
+    @CrossOrigin(origins = "*")
     @RequestMapping( value="/{emailUser}/parties", method=RequestMethod.GET )
     public ResponseEntity<?> getUserParties(@PathVariable(name = "emailUser") String emailUser){
         try
@@ -147,7 +147,7 @@ public class UserController
 
     }
 
-    @CrossOrigin(origins = "https://farrapp-frontend.herokuapp.com")
+    @CrossOrigin(origins = "*")
     @RequestMapping( value="/{emailUser}/parties/add", method=RequestMethod.PUT )
     public ResponseEntity<?> addUserParty(@PathVariable(name = "emailUser") String emailUser, @RequestBody Party party){
 
@@ -169,7 +169,7 @@ public class UserController
 
 
 
-    @CrossOrigin(origins = "https://farrapp-frontend.herokuapp.com")
+    @CrossOrigin(origins = "*")
     @RequestMapping( value="/{emailUser}/parties/remove", method=RequestMethod.PUT )
     public ResponseEntity<?> removeUserParty(@PathVariable(name = "emailUser") String emailUser, @RequestBody Map<String, Integer> partyId){
 
