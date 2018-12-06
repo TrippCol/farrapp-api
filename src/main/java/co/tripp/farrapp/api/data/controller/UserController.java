@@ -119,7 +119,7 @@ public class UserController
         return new ResponseEntity<>(userService.getUsers(), HttpStatus.ACCEPTED);
     }
 
-    @CrossOrigin(origins = "https://farrapp-frontend.herokuapp.com")
+    @CrossOrigin(origins = "*")
     @RequestMapping( value="/{emailUser}", method=RequestMethod.GET )
     public ResponseEntity<?> getUser(@PathVariable(name = "emailUser") String emailUser){
         try
