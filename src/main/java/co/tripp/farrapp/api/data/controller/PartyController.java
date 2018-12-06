@@ -22,27 +22,27 @@ public class PartyController {
     @Autowired
     private PartyService partyService;
 
-    @CrossOrigin(origins = "https://farrapp-frontend.herokuapp.com")
+    @CrossOrigin(origins = "*")
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<?> addParty(@RequestBody Party party) throws ServletException {
         partyService.addNewParty(party);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @CrossOrigin(origins = "https://farrapp-frontend.herokuapp.com")
+    @CrossOrigin(origins = "*")
     @RequestMapping(value = "/creator/{creator}", method = RequestMethod.GET)
     public ResponseEntity<?> getPartiesByCreator(@PathVariable("creator") String creator) {
         return new ResponseEntity<>(partyService.getPartiesByCreator(creator), HttpStatus.ACCEPTED);
     }
 
 
-    @CrossOrigin(origins = "https://farrapp-frontend.herokuapp.com")
+    @CrossOrigin(origins = "*")
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<?> getPartyList() {
         return new ResponseEntity<>(partyService.getParties(), HttpStatus.ACCEPTED);
     }
 
-    @CrossOrigin(origins = "https://farrapp-frontend.herokuapp.com")
+    @CrossOrigin(origins = "*")
     @RequestMapping(value = "/party/{idParty}", method = RequestMethod.POST)
     public ResponseEntity<?> addUserToParty(@PathVariable(name = "idParty") int idParty, @RequestBody User user) throws ServletException {
         partyService.addNewAssistant(idParty, user);
