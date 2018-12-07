@@ -1,4 +1,4 @@
-package co.tripp.farrapp.api.data.service;
+package co.tripp.farrapp.api.data.services.party;
 
 import co.tripp.farrapp.api.data.model.Party;
 import co.tripp.farrapp.api.data.model.User;

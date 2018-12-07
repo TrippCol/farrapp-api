@@ -1,7 +1,11 @@
 package co.tripp.farrapp.api.data.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
 public class Bar {
-    private Integer id;
+
     private String name;
     private String address;
     private Integer rating;
@@ -9,20 +13,12 @@ public class Bar {
     public Bar() {
     }
 
-    public Bar(Integer id, String name, String address, Integer rating) {
-        this.id = id;
+    public Bar(String name, String address, Integer rating) {
         this.name = name;
         this.address = address;
         this.rating = rating;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -46,5 +42,14 @@ public class Bar {
 
     public void setRating(Integer rating) {
         this.rating = rating;
+    }
+
+    @Override
+    public String toString() {
+        return "Bar{" +
+                "name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", rating=" + rating +
+                '}';
     }
 }

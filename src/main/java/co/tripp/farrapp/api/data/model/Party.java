@@ -27,9 +27,10 @@ public class Party {
     private Bar bar;
 
 
-    public Party(){}
+    public Party() {
+    }
 
-    public Party(String creator, String partyName, String description, String eventDate, String eventHour, String address, String place, Integer price, List<Item> cartaDeProductos, List<User> assistants, String dressCode, Integer minAge ) {
+    public Party(String creator, String partyName, String description, String eventDate, String eventHour, String address, String place, Integer price, List<Item> cartaDeProductos, List<User> assistants, String dressCode, Integer minAge) {
         this.creator = creator;
         this.partyName = partyName;
         this.description = description;
@@ -134,7 +135,7 @@ public class Party {
         this.categories = categories;
     }
 
-    public void addAssistant(User user){
+    public void addAssistant(User user) {
         this.assistants.add(user);
     }
 
@@ -168,5 +169,27 @@ public class Party {
 
     public void setBar(Bar bar) {
         this.bar = bar;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Party{" +
+                "id=" + id +
+                ", creator='" + creator + '\'' +
+                ", partyName='" + partyName + '\'' +
+                ", description='" + description + '\'' +
+                ", eventDate='" + eventDate + '\'' +
+                ", eventHour='" + eventHour + '\'' +
+                ", address='" + address + '\'' +
+                ", place='" + place + '\'' +
+                ", price=" + price +
+                ", cartaDeProductos=" + cartaDeProductos +
+                ", assistants=" + assistants +
+                ", categories=" + categories +
+                ", minAge=" + minAge +
+                ", dressCode='" + dressCode + '\'' +
+                ", bar=" + bar +
+                '}';
     }
 }

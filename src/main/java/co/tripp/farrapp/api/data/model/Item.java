@@ -1,6 +1,10 @@
 package co.tripp.farrapp.api.data.model;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
 public class Item {
+
     private String name;
     private Integer price;
 
@@ -26,5 +30,13 @@ public class Item {
 
     public void setPrice(Integer price) {
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                '}';
     }
 }

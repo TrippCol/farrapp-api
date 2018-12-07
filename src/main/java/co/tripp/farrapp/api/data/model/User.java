@@ -17,9 +17,10 @@ public class User {
     @Id
     private int id;
 
-    public User(){}
+    public User() {
+    }
 
-    public User(String name, String lastName, String email, String password, int id, String type, List<Party> myParties){
+    public User(String name, String lastName, String email, String password, int id, String type, List<Party> myParties) {
         this.name = name;
         this.lastName = lastName;
         this.email = email;
@@ -98,10 +99,23 @@ public class User {
     }
 
     public void removeParty(int partyId) {
-        for(int i=0; i<this.myParties.size(); i++){
-            if(this.myParties.get(i).getId() == partyId){
+        for (int i = 0; i < this.myParties.size(); i++) {
+            if (this.myParties.get(i).getId() == partyId) {
                 this.myParties.remove(i);
             }
         }
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", type='" + type + '\'' +
+                ", myParties=" + myParties +
+                ", id=" + id +
+                '}';
     }
 }

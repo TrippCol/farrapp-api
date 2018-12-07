@@ -2,15 +2,13 @@ package co.tripp.farrapp.api.data.controller;
 
 import co.tripp.farrapp.api.data.model.Party;
 import co.tripp.farrapp.api.data.model.User;
-import co.tripp.farrapp.api.data.service.PartyService;
+import co.tripp.farrapp.api.data.services.party.PartyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletException;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
 
 /**
  * @author Tripp

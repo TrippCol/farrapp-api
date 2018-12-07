@@ -1,8 +1,9 @@
-package co.tripp.farrapp.api.data.service;
+package co.tripp.farrapp.api.data.services.user.impl;
 
 import co.tripp.farrapp.api.data.model.Item;
 import co.tripp.farrapp.api.data.model.Party;
 import co.tripp.farrapp.api.data.model.User;
+import co.tripp.farrapp.api.data.services.user.UserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -11,7 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
-@Service
+//@Service
 public class UserServiceImpl implements UserService {
     private ConcurrentHashMap<String, User> users;
 

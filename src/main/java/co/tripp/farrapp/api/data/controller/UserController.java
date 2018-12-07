@@ -2,7 +2,7 @@ package co.tripp.farrapp.api.data.controller;
 
 import co.tripp.farrapp.api.data.model.Party;
 import co.tripp.farrapp.api.data.model.User;
-import co.tripp.farrapp.api.data.service.UserService;
+import co.tripp.farrapp.api.data.services.user.UserService;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
