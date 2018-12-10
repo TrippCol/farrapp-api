@@ -42,7 +42,7 @@ public class Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        partyRepository.deleteAll();
+        /*partyRepository.deleteAll();
         List<User> asistentes=new ArrayList<User>();
         Party armandoHalloween = new Party("Candy FLip", "Armando Halloween",
                 "Fiesta realizada el 31 de diciembre para el dia de las brujas",
@@ -96,7 +96,7 @@ public class Application implements CommandLineRunner {
         partyRepository.save(armandoHalloween);
 
 
-        /*userRepository.deleteAll();
+        userRepository.deleteAll();
         List<User> usersMongo =  new ArrayList<>();
 
         List<Party> myPartiesTest = new ArrayList<>();
