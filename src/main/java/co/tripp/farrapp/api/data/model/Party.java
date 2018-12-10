@@ -5,6 +5,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @Document
 public class Party {
@@ -25,9 +26,11 @@ public class Party {
     private Integer minAge;
     private String dressCode;
     private Bar bar;
+    private static final AtomicInteger idCount = new AtomicInteger(4);
 
 
     public Party() {
+        this.id = idCount.incrementAndGet();
     }
 
     public Party(String creator, String partyName, String description, String eventDate, String eventHour, String address, String place, Integer price, List<Item> cartaDeProductos, List<User> assistants, String dressCode, Integer minAge) {
