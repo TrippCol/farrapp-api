@@ -130,4 +130,9 @@ public class InMemoryPartyService implements PartyService {
         return foundParties;
     }
 
+    @Override
+    public Party getParty(int id) {
+        return parties.get(id);
+    }
+
 }

@@ -54,4 +54,9 @@ public class MongoPartyService implements PartyService {
     public List<Party> getPartiesByCreator(String creator) {
         return partyRepository.findByCreator(creator);
     }
+
+    @Override
+    public Party getParty(int id) {
+        return partyRepository.findById(id);
+    }
 }

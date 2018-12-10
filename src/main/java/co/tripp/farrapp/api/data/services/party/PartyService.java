@@ -23,4 +23,5 @@ public interface PartyService
 
     List<Party> getPartiesByCreator(String creator);
 
+    Party getParty(int id);
 }
